@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+</head>
+<body>
+    <div>
+        <form action="/logout" method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+    <div>
+        <form method="post">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="text" name="name" placeholder="enter your name" />
+            <input type="text" name="age" placeholder="enter your age" />
+            <button type="submit">Add</button>
+        </form>
+    </div>
+    <div>
+        User list
+        <form method="post" action="filter">
+            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+            <input type="text" name="filter" />
+            <button type="submit">Find</button>
+        </form>
+        {{#users}}
+            <div>
+                id: {{id}}
+                <b>{{name}}</b>
+                <i>{{age}}</i>
+            </div>
+        {{/users}}
+    </div>
+</body>
+</html>
