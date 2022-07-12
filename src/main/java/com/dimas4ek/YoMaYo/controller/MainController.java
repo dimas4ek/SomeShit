@@ -1,8 +1,11 @@
 package com.dimas4ek.YoMaYo.controller;
 
-import com.dimas4ek.YoMaYo.domain.UserInfo;
+import com.dimas4ek.YoMaYo.domain.Message;
+import com.dimas4ek.YoMaYo.domain.User;
+import com.dimas4ek.YoMaYo.repos.MessageRepo;
 import com.dimas4ek.YoMaYo.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,46 +15,52 @@ import java.util.Map;
 
 @Controller
 public class MainController {
-
+    @Autowired
+    private MessageRepo messageRepo;
     @Autowired
     private UserRepo userRepo;
 
     @GetMapping("/")
-    public String home(Map<String, Object> model) {
-        return "home";
+    public String greeting(Map<String, Object> model) {
+        return "greeting";
     }
 
     @GetMapping("/main")
     public String main(Map<String, Object> model) {
-        Iterable<UserInfo> users = userRepo.findAll();
-        model.put("users", users);
+        Iterable<Message> messages = messageRepo.findAll();
+
+        model.put("messages", messages);
+
         return "main";
     }
 
     @PostMapping("/main")
-    public String add(@RequestParam String name, @RequestParam int age, Map<String, Object> model) {
-        UserInfo user = new UserInfo(name, age);
+    public String add(
+            @AuthenticationPrincipal User user,
+            @RequestParam String text, Map<String, Object> model
+    ) {
+        Message message = new Message(0, text);
 
-        userRepo.save(user);
+        messageRepo.save(message);
 
-        Iterable<UserInfo> users = userRepo.findAll();
+        Iterable<Message> messages = messageRepo.findAll();
 
-        model.put("users", users);
+        model.put("messages", messages);
 
         return "main";
     }
 
     @PostMapping("filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<UserInfo> users;
+        Iterable<Message> messages;
 
         if (filter != null && !filter.isEmpty()) {
-            users = userRepo.findByName(filter);
+            messages = (Iterable<Message>) messageRepo.findById(filter);
         } else {
-            users = userRepo.findAll();
+            messages = messageRepo.findAll();
         }
 
-        model.put("users", users);
+        model.put("messages", messages);
 
         return "main";
     }

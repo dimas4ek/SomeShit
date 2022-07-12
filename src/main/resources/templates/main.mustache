@@ -12,25 +12,15 @@
     <div>
         <form method="post">
             <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-            <input type="text" name="name" placeholder="enter your name" />
-            <input type="text" name="age" placeholder="enter your age" />
+            <input type="text" name="text" placeholder="type a message" />
             <button type="submit">Add</button>
         </form>
     </div>
-    <div>
-        User list
-        <form method="post" action="filter">
-            <input type="hidden" name="_csrf" value="{{_csrf.token}}" />
-            <input type="text" name="filter" />
-            <button type="submit">Find</button>
-        </form>
-        {{#users}}
-            <div>
-                id: {{id}}
-                <b>{{name}}</b>
-                <i>{{age}}</i>
-            </div>
-        {{/users}}
-    </div>
+    {{#messages}}
+        <div>
+            <b>{{id}}</b>
+            <i>{{text}}</i>
+        </div>
+    {{/messages}}
 </body>
 </html>
