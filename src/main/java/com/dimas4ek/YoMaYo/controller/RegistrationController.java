@@ -1,5 +1,6 @@
 package com.dimas4ek.YoMaYo.controller;
 
+import com.dimas4ek.YoMaYo.domain.Role;
 import com.dimas4ek.YoMaYo.domain.User;
 import com.dimas4ek.YoMaYo.repos.MessageRepo;
 import com.dimas4ek.YoMaYo.repos.UserRepo;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Collections;
 import java.util.Map;
 
 @Controller
@@ -30,7 +32,7 @@ public class RegistrationController {
         }
 
         user.setActive(true);
-        //user.setRoles(Collections.singleton(Role.USER));
+        user.setRoles(Collections.singleton(Role.USER));
 
         userRepo.save(user);
 
