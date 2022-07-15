@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 //включение авторизации
                 .authorizeRequests()
-                    .antMatchers("/", "/registration", "/static/**").permitAll() //полный доступ для главного пути
+                    .antMatchers("/", "/registration", "/static/**", "/activate/*").permitAll() //полный доступ для главного пути
                     .anyRequest().authenticated() //для остальных - авторизация
                     .and()
                 //включение логина
