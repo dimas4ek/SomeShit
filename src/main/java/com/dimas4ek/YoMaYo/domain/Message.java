@@ -1,12 +1,17 @@
 package com.dimas4ek.YoMaYo.domain;
 
+import org.hibernate.validator.constraints.Length;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Message {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    private Long id;
+    @NotBlank(message = "please fill the message")
+    @Length(max = 2048, message = "message too long")
     private String text;
 
     @ManyToOne(fetch=FetchType.EAGER) //один юзер - множество сообщений. EAGER - инфо о юзере
@@ -20,7 +25,7 @@ public class Message {
     public Message() {
     }
 
-    public Message(Integer id, String text, User author) {
+    public Message(Long id, String text, User author) {
         this.author = author;
         this.id = id;
         this.text = text;
@@ -46,11 +51,11 @@ public class Message {
         return text;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
