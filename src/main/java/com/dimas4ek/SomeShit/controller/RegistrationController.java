@@ -1,8 +1,8 @@
-package com.dimas4ek.YoMaYo.controller;
+package com.dimas4ek.SomeShit.controller;
 
-import com.dimas4ek.YoMaYo.domain.User;
-import com.dimas4ek.YoMaYo.domain.dto.CaptchaResponseDto;
-import com.dimas4ek.YoMaYo.service.UserService;
+import com.dimas4ek.SomeShit.domain.User;
+import com.dimas4ek.SomeShit.domain.dto.CaptchaResponseDto;
+import com.dimas4ek.SomeShit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.dimas4ek.YoMaYo.domain.dto;
+package com.dimas4ek.SomeShit.domain.dto;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

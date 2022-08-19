@@ -1,4 +1,4 @@
-package com.dimas4ek.YoMaYo.controller;
+package com.dimas4ek.SomeShit.controller;
 
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

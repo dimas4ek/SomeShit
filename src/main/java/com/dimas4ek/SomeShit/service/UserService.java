@@ -1,9 +1,10 @@
-package com.dimas4ek.YoMaYo.service;
+package com.dimas4ek.SomeShit.service;
 
-import com.dimas4ek.YoMaYo.domain.Role;
-import com.dimas4ek.YoMaYo.domain.User;
-import com.dimas4ek.YoMaYo.repos.UserRepo;
+import com.dimas4ek.SomeShit.domain.Role;
+import com.dimas4ek.SomeShit.domain.User;
+import com.dimas4ek.SomeShit.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -23,6 +24,9 @@ public class UserService implements UserDetailsService {
     private MailSender mailSender;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Value("${hostname")
+    private String hostname;
 
     public UserService(UserRepo userRepo) {
         this.userRepo = userRepo;
@@ -62,8 +66,10 @@ public class UserService implements UserDetailsService {
         if (!StringUtils.isEmpty(user.getEmail())) {
             String message = String.format(
                     "Hello, %s.\n" +
-                            "Please, visit http://localhost:8080/activate/%s to confirm your account",
-                    user.getUsername(), user.getActivationCode()
+                            "Please, visit http://%s/activate/%s to confirm your account",
+                    user.getUsername(),
+                    hostname,
+                    user.getActivationCode()
             );
 
             mailSender.send(user.getEmail(), "Activation Code", message);

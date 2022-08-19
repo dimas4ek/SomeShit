@@ -1,4 +1,4 @@
-package com.dimas4ek.YoMaYo.service;
+package com.dimas4ek.SomeShit.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

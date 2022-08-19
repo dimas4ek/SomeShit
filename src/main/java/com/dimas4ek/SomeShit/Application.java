@@ -1,4 +1,4 @@
-package com.dimas4ek.YoMaYo;
+package com.dimas4ek.SomeShit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

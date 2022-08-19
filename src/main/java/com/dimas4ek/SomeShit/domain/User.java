@@ -1,4 +1,4 @@
-package com.dimas4ek.YoMaYo.domain;
+package com.dimas4ek.SomeShit.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

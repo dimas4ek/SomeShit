@@ -1,4 +1,4 @@
-package com.dimas4ek.YoMaYo.config;
+package com.dimas4ek.SomeShit.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

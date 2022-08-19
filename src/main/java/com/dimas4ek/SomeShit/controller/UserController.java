@@ -1,8 +1,8 @@
-package com.dimas4ek.YoMaYo.controller;
+package com.dimas4ek.SomeShit.controller;
 
-import com.dimas4ek.YoMaYo.domain.Role;
-import com.dimas4ek.YoMaYo.domain.User;
-import com.dimas4ek.YoMaYo.service.UserService;
+import com.dimas4ek.SomeShit.domain.Role;
+import com.dimas4ek.SomeShit.domain.User;
+import com.dimas4ek.SomeShit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
