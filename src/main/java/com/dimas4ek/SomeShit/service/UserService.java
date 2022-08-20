@@ -25,7 +25,7 @@ public class UserService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Value("${hostname")
+    @Value("${hostname}")
     private String hostname;
 
     public UserService(UserRepo userRepo) {
