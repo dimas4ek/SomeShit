@@ -1,5 +1,6 @@
 package com.dimas4ek.SomeShit.domain;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -13,7 +14,8 @@ import java.util.Set;
 @Table(name = "usr")
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(
+            strategy= GenerationType.AUTO)
     private Long id;
 
     @NotBlank(message = "username cannot be empty")
